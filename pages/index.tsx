@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { TraceURLType } from "./../src/types";
+import Link from "next/link";
+import Image from 'next/image'
 
 export default function Home() {
   const [urlInput, setURLInput] = useState("");
@@ -35,16 +37,18 @@ export default function Home() {
     <div className="content py-3 my-3 md:py-5 md:my-5">
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <a href="/" className="flex items-center">
-            <img
+          <Link href="/" className="flex items-center">
+            <Image
               src="/logo.png"
-              className="mr-3 h-6 sm:h-9"
-              alt="Flowbite Logo"
+              className="logo mr-3 h-6 sm:h-9"
+              alt="check url logo"
+              width={34}
+              height={34}
             />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               Check URL
             </span>
-          </a>
+          </Link>
           <div className="flex items-center lg:order-2">
             <a
               href="mailto:dev@muhfaris.com"
