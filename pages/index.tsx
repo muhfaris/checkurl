@@ -37,7 +37,7 @@ export default function Home() {
   }
 
   return (
-    <div className="content py-3 my-3 md:py-5 md:my-5">
+    <div className="content md:py-5 md:my-5 dark:bg-gray-800">
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <Link href="/" className="flex items-center">
@@ -63,24 +63,26 @@ export default function Home() {
         </div>
       </nav>
       <div className="container mx-auto">
-        <div className="flex justify-center  px-6 my-12">
+        <div className="flex justify-center  px-6 my-28">
           <div className="w-full xl:w-3/4 lg:w-11/12 flex">
             <div className="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg side-images"></div>
-            <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+            <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none dark:bg-gray-800">
               <div className="px-8 mb-4 text-center">
-                <h3 className="pt-4 mb-2 text-2xl">Check URL</h3>
-                <p className="mb-4 text-sm text-gray-700">
+                <h3 className="pt-4 mb-2 text-2xl dark:text-white">
+                  Check URL
+                </h3>
+                <p className="mb-4 text-sm text-gray-700 dark:text-white">
                   We help you to trace the suspicious URL until you can see the
                   real URL.
                 </p>
               </div>
               <form
-                className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
+                className="px-8 pt-6 pb-8 mb-4 bg-white rounded dark:bg-gray-800"
                 onSubmit={formHandler}
               >
                 <div className="mb-4">
                   <label
-                    className="block mb-2 text-sm font-bold text-gray-700"
+                    className="block mb-2 text-sm font-bold text-gray-700 dark:text-white"
                     htmlFor="email"
                   >
                     URL
@@ -130,7 +132,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="px-5">
+        <div className="flex px-5 mx-5">
           <ol className="relative border-l border-gray-200 dark:border-gray-700">
             {tracesURL.map((tu, key) => {
               return (
@@ -189,6 +191,58 @@ export default function Home() {
           </ol>
         </div>
       </div>
+      <footer className="text-gray-600 body-font">
+        <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+          <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+            © 2023 Check URL —
+            <a
+              href="https://twitter.com/_muh_faris"
+              className="text-gray-600 ml-1"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              @_muh_faris
+            </a>
+          </p>
+          <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a
+              className="ml-3 text-gray-500"
+              href="https://twitter.com/_muh_faris"
+            >
+              <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              </svg>
+            </a>
+            <a
+              className="ml-3 text-gray-500"
+              href="https://www.linkedin.com/in/muhfaris/"
+            >
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="0"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="none"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                ></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </footer>
     </div>
   );
 }
