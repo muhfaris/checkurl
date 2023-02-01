@@ -190,7 +190,7 @@ export default function Home() {
           <ol className="relative border-l border-gray-200 dark:border-gray-700">
             {tracesURL.map((tu, key) => {
               return (
-                <li className="mb-10 ml-6" key={key}>
+                <li className="max-w-xs mb-10 ml-6 md:max-w-full" key={key}>
                   <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
                     <svg
                       aria-hidden="true"
@@ -215,7 +215,7 @@ export default function Home() {
                   <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                     status {tu.status}
                   </time>
-                  <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+                  <p className="break-words mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                     {tu.url}
                     <button
                       className="inline-block font-medium text-sm text-blue-800 dark:text-blue-300 px-2.5 py-0.5 rounded"
