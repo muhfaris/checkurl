@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>Trace URL Tool - Muh Faris</title>
         <script
           defer
           data-domain="checkurl.muhfaris.com"
