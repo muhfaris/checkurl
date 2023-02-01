@@ -1,6 +1,7 @@
 import { DomainOwnership } from "./type";
 import listDomainShopee from "./list_shopee";
 import listDomainTokopedia from "./list_tokopedia";
+import listDomainBlibli from "./list_blibli";
 
 var domains = (function () {
   let domains = new Map();
@@ -10,6 +11,10 @@ var domains = (function () {
 
   listDomainShopee().map((ds: DomainOwnership) => {
     domains.set(ds.domain, ds.name);
+  });
+
+  listDomainBlibli().map((db: DomainOwnership) => {
+    domains.set(db.domain, db.name);
   });
 
   return {
