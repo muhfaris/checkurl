@@ -139,7 +139,7 @@ export default function Home() {
             </button>
           </div>
         )}
-        <div className="flex justify-center  px-6 my-28">
+        <div className="flex justify-center px-6 my-24 md:my-28">
           <div className="w-full xl:w-3/4 lg:w-11/12 flex">
             <div className="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg side-images"></div>
             <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none dark:bg-gray-800">
@@ -268,7 +268,7 @@ export default function Home() {
         </div>
       </div>
       <footer className="text-gray-600 body-font">
-        <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+        <div className="container px-5 pt-16 pb-8 mx-auto flex items-center sm:flex-row flex-col">
           <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4">
             © 2023 Check URL —
             <a

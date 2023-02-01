@@ -122,7 +122,7 @@ async function requestURL(url: string): Promise<TraceURL[]> {
         }
 
         if (tmpURL) {
-          const ru = ParseURL(reqURL);
+          const ru = ParseURL(tmpURL);
           if (ru) {
             const td = domains.get(ru.host);
             if (td) {
