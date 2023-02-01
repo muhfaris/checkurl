@@ -7,5 +7,8 @@ export default function listDomainTokopedia(): DomainOwnership[] {
 
     { domain: "tokopedia.link", name: "Tokopedia" },
     { domain: "www.tokopedia.link", name: "Tokopedia" },
+
+    { domain: "tokopedia.app.link", name: "Tokopedia" },
+    { domain: "www.tokopedia.app.link", name: "Tokopedia" },
   ];
 }
