@@ -4,11 +4,25 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <script
-          defer
-          data-domain="checkurl.muhfaris.com"
-          src="https://plausible.io/js/script.js"
-        ></script>
+        {typeof window !== "undefined" &&
+          window.location.hostname === "checkurl.muhfaris.com" && (
+            <>
+              <script
+                async
+                defer
+                data-domain="checkurl.muhfaris.com"
+                src="https://plausible.io/js/script.js"
+              ></script>
+
+              <script
+                async
+                defer
+                data-domain="checkurl.muhfaris.com"
+                src="https://plausible.io/js/script.tagged-events.js"
+              ></script>
+            </>
+          )}
+
         <meta
           name="description"
           content="trace url tool of the suspicious URL until you can see the real URL."
@@ -24,6 +38,51 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <script
+          id="inline-script"
+          dangerouslySetInnerHTML={{
+            __html: `
+              let links = document.querySelectorAll("a[data-analytics]");
+              for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener("click", handleLinkEvent);
+                links[i].addEventListener("auxclick", handleLinkEvent);
+              }
+
+              function handleLinkEvent(event) {
+                var link = event.target;
+                var middle = event.type == "auxclick" && event.which == 2;
+                var click = event.type == "click";
+                while (
+                  link &&
+                  (typeof link.tagName == "undefined" ||
+                    link.tagName.toLowerCase() != "a" ||
+                    !link.href)
+                ) {
+                  link = link.parentNode;
+                }
+                if (middle || click) {
+                  let attributes = link.getAttribute("data-analytics").split(/,(.+)/);
+                  console.log(attributes)
+                  let events = [
+                    JSON.parse(attributes[0]),
+                    JSON.parse(attributes[1] || "{}"),
+                  ];
+
+                  if(plausible){
+                    plausible(...events);
+                  }
+                }
+                if (!link.target) {
+                  if (!(event.ctrlKey || event.metaKey || event.shiftKey) && click) {
+                    setTimeout(function () {
+                      location.href = link.href;
+                    }, 150);
+                    event.preventDefault();
+                  }
+                }
+              }`,
+          }}
+        ></script>
       </body>
     </Html>
   );
