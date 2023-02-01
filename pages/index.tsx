@@ -44,29 +44,32 @@ export default function Home() {
     }
   }
 
-  const copyTextFallback = (txt: string) => {
-    let textArea = document.createElement("textarea");
+  const copyText = async (txt: string) => {
+    // alert(txt);
+    // if ("clipboard" in navigator) {
+    //   console.log("H0");
+    //   return await navigator.clipboard.writeText(txt);
+    // }
+    // console.log("H");
+    // return document.execCommand("copy", true, txt);
+    // Create a textarea element to store the text
+    var textArea = document.createElement("textarea");
+
+    // Assign the text to be copied to the textarea
     textArea.value = txt;
+
+    // Make the textarea element not visible
+    // textArea.style.display = "none";
+
+    // Append the textarea to the body
     document.body.appendChild(textArea);
+
+    // Highlight and copy the text
     textArea.select();
     document.execCommand("copy");
-    textArea.remove();
-  };
 
-  const copyTextClipboardAPI = async (txt: string) => {
-    let text = document.getElementById(txt)!.innerText;
-
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch (err) {}
-  };
-
-  const copyText = async (txt: string) => {
-    if (navigator.clipboard) {
-      await copyTextClipboardAPI(txt);
-    } else {
-      copyTextFallback(txt);
-    }
+    // Remove the textarea from the body
+    document.body.removeChild(textArea);
   };
 
   return (
