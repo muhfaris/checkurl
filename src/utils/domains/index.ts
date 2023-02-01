@@ -1,10 +1,16 @@
+import { DomainOwnership } from "./type";
+import listDomainShopee from "./list_shopee";
+import listDomainTokopedia from "./list_tokopedia";
+
 var domains = (function () {
   let domains = new Map();
-  domains.set("tokopedia.com", "Tokopedia");
-  domains.set("www.tokopedia.com", "Tokopedia")
+  listDomainTokopedia().map((dt: DomainOwnership) => {
+    domains.set(dt.domain, dt.name);
+  });
 
-  domains.set("shopee.co.id", "Shopee")
-  domains.set("www.shopee.co.id", "Shopee")
+  listDomainShopee().map((ds: DomainOwnership) => {
+    domains.set(ds.domain, ds.name);
+  });
 
   return {
     get: function (key: string): string {

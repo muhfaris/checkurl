@@ -40,8 +40,29 @@ export default function Home() {
 
       setTracesURL((prev) => [...prev, ...respTracesURL]);
       setLoading(false);
+      setIsError(false);
     }
   }
+
+  const copyText = async (txt: string) => {
+    var textArea = document.createElement("textarea");
+
+    // Assign the text to be copied to the textarea
+    textArea.value = txt;
+
+    // Make the textarea element not visible
+    // textArea.style.display = "none";
+
+    // Append the textarea to the body
+    document.body.appendChild(textArea);
+
+    // Highlight and copy the text
+    textArea.select();
+    document.execCommand("copy");
+
+    // Remove the textarea from the body
+    document.body.removeChild(textArea);
+  };
 
   return (
     <div className="content md:py-5 md:my-5 dark:bg-gray-800">
@@ -220,7 +241,7 @@ export default function Home() {
                     {tu.url}
                     <button
                       className="inline-block font-medium text-sm text-blue-800 dark:text-blue-300 px-2.5 py-0.5 rounded"
-                      onClick={() => navigator.clipboard.writeText(tu.url)}
+                      onClick={() => copyText(tu.url)}
                     >
                       <svg
                         className="h-6 w-6 text-gray-500"

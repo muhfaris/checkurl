@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 import domains from "./../../src/utils/domains";
-import ValidURL from "./../../src/utils/urllib"
+import ValidURL from "./../../src/utils/urllib";
 
 type TraceURL = {
   url: string;

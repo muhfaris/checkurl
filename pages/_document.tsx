@@ -11,18 +11,17 @@ export default function Document() {
                 async
                 defer
                 data-domain="checkurl.muhfaris.com"
-                src="https://plausible.io/js/script.js"
+                src="/js/script.js"
               ></script>
 
               <script
-                async
                 defer
                 data-domain="checkurl.muhfaris.com"
-                src="https://plausible.io/js/script.tagged-events.js"
+                data-api="/api/event"
+                src="/js/script.js"
               ></script>
             </>
           )}
-
         <meta
           name="description"
           content="trace url tool of the suspicious URL until you can see the real URL."
