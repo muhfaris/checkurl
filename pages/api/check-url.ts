@@ -2,6 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 import domains from "./../../src/utils/domains";
+import ValidURL from "./../../src/utils/urllib"
 
 type TraceURL = {
   url: string;
@@ -156,24 +157,5 @@ function ParseURL(url: string): URL | undefined {
   const valid = ValidURL(url);
   if (valid) {
     return new URL(url);
-  }
-}
-
-function ValidURL(url: string): boolean {
-  try {
-    const valid = Boolean(new URL(url));
-    if (valid) {
-      const u = new URL(url);
-      if (!u) {
-        return false;
-      }
-      if (u.host == "") {
-        return false;
-      }
-      return true;
-    }
-    return false;
-  } catch (e) {
-    return false;
   }
 }
