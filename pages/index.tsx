@@ -254,7 +254,7 @@ export default function Home() {
             <a
               href="https://twitter.com/_muh_faris"
               className="text-gray-600 ml-1"
-              rel="noopener noreferrer"
+              rel="opener noreferrer"
               target="_blank"
               data-analytics='"Twitter Muh Faris"'
             >
