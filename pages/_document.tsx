@@ -5,6 +5,11 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <title>Trace URL Tool - Muh Faris</title>
+        <script
+          defer
+          data-domain="checkurl.muhfaris.com"
+          src="https://plausible.io/js/script.js"
+        ></script>
         <meta
           name="description"
           content="trace url tool of the suspicious URL until you can see the real URL."
