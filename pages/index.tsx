@@ -63,6 +63,7 @@ export default function Home() {
             <a
               href="mailto:dev@muhfaris.com"
               className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+              data-analytics="Contact Us"
             >
               Contact Us
             </a>
@@ -254,6 +255,7 @@ export default function Home() {
               className="text-gray-600 ml-1"
               rel="noopener noreferrer"
               target="_blank"
+              data-analytics="Twitter Muh Faris"
             >
               @_muh_faris
             </a>
@@ -262,6 +264,7 @@ export default function Home() {
             <a
               className="ml-3 text-gray-500"
               href="https://twitter.com/_muh_faris"
+              data-analytics="Twitter Muh Faris"
             >
               <svg
                 fill="currentColor"
