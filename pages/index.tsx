@@ -40,6 +40,7 @@ export default function Home() {
 
       setTracesURL((prev) => [...prev, ...respTracesURL]);
       setLoading(false);
+      setIsError(false)
     }
   }
 

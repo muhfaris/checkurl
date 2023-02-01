@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 import domains from "./../../src/utils/domains";
-import ValidURL from "./../../src/utils/urllib"
+import ValidURL from "./../../src/utils/urllib";
 
 type TraceURL = {
   url: string;
@@ -37,9 +37,9 @@ export default async function handler(
     const data = await requestURL(urls); // 200
     // const data = await requestURL("https://bit.ly/3RjLNgt"); // bit.ly + 200
     // const data = await requestURL("https://bit.ly/3XPCtne"); // 200 1
-    res.status(200).json({ data: data });
+    return res.status(200).json({ data: data });
   } catch (error) {
-    res
+    return res
       .status(500)
       .json({ error: "internal server error, please contact admin!" });
   }
