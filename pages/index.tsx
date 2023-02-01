@@ -45,14 +45,6 @@ export default function Home() {
   }
 
   const copyText = async (txt: string) => {
-    // alert(txt);
-    // if ("clipboard" in navigator) {
-    //   console.log("H0");
-    //   return await navigator.clipboard.writeText(txt);
-    // }
-    // console.log("H");
-    // return document.execCommand("copy", true, txt);
-    // Create a textarea element to store the text
     var textArea = document.createElement("textarea");
 
     // Assign the text to be copied to the textarea
