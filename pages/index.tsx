@@ -40,9 +40,34 @@ export default function Home() {
 
       setTracesURL((prev) => [...prev, ...respTracesURL]);
       setLoading(false);
-      setIsError(false)
+      setIsError(false);
     }
   }
+
+  const copyTextFallback = (txt: string) => {
+    let textArea = document.createElement("textarea");
+    textArea.value = txt;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    textArea.remove();
+  };
+
+  const copyTextClipboardAPI = async (txt: string) => {
+    let text = document.getElementById(txt)!.innerText;
+
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (err) {}
+  };
+
+  const copyText = async (txt: string) => {
+    if (navigator.clipboard) {
+      await copyTextClipboardAPI(txt);
+    } else {
+      copyTextFallback(txt);
+    }
+  };
 
   return (
     <div className="content md:py-5 md:my-5 dark:bg-gray-800">
@@ -221,7 +246,7 @@ export default function Home() {
                     {tu.url}
                     <button
                       className="inline-block font-medium text-sm text-blue-800 dark:text-blue-300 px-2.5 py-0.5 rounded"
-                      onClick={() => navigator.clipboard.writeText(tu.url)}
+                      onClick={() => copyText(tu.url)}
                     >
                       <svg
                         className="h-6 w-6 text-gray-500"
