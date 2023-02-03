@@ -1,8 +1,8 @@
-import Link from "next/link";
-import Image from "next/image";
 import { DomainOwnership } from "@/src/utils/domains/type";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "@/src/components/header";
+import Footer from "./../src/components/footer";
 
 const getDomains = async (): Promise<DomainOwnership[] | undefined> => {
   try {
@@ -33,39 +33,8 @@ export default function DomainStatus() {
 
   return (
     <div className="content md:py-5 md:my-5 dark:bg-gray-800">
-      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/logo.png"
-              className="logo mr-3 h-6 sm:h-9"
-              alt="check url logo"
-              width={34}
-              height={34}
-            />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Check URL
-            </span>
-          </Link>
-          <div className="flex items-center lg:order-2">
-            <Link
-              href="/status-domains"
-              className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-              data-analytics='"Contact Us"'
-            >
-              Status Domains
-            </Link>
-            <a
-              href="mailto:dev@muhfaris.com?subject=Hi%2C%20I%20am%20from%20checkurl.muhfaris.com"
-              className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-              data-analytics='"Contact Us"'
-            >
-              Contact Us
-            </a>
-          </div>
-        </div>
-      </nav>
-      <div className="bg-white py-6 sm:py-8 lg:py-12">
+      <Header />
+      <div className="py-6 sm:py-8 lg:py-12">
         <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
           <div className="mb-10 md:mb-16">
             <h2 className="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">
@@ -106,12 +75,12 @@ export default function DomainStatus() {
             {domains.map((domain, index) => {
               return (
                 <div
-                  className="flex bg-gray-50 border rounded-lg divide-x"
+                  className="flex dark:bg-gray-800 text-white border rounded-lg divide-x"
                   key={index}
                 >
                   <div
                     className={
-                      "flex items-center text-white p-2 md:p-4 " +
+                      "flex items-center text-white p-2 md:p-4 rounded-l-lg " +
                       (domain.is_active ? "bg-green-400" : "bg-gray-400")
                     }
                   >
@@ -154,7 +123,7 @@ export default function DomainStatus() {
                     <h3 className="text-lg md:text-xl font-semibold mb-2">
                       {domain.domain}
                     </h3>
-                    <p className="text-gray-500">
+                    <p className="text-white">
                       {domain.name} {domain.note && `(${domain.note})`}
                     </p>
                   </div>
@@ -164,6 +133,7 @@ export default function DomainStatus() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

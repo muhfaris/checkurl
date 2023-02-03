@@ -56,7 +56,7 @@ export default async function handler(
 
   res.setHeader(
     "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
+    "public, s-maxage=3600, stale-while-revalidate=900"
   );
   return res.status(200).json(updateDomains);
 }
