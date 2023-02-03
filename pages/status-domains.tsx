@@ -75,7 +75,7 @@ export default function DomainStatus() {
             {domains.map((domain, index) => {
               return (
                 <div
-                  className="flex dark:bg-gray-800 text-white border rounded-lg divide-x"
+                  className="flex dark:bg-gray-800 dark:text-white border rounded-lg divide-x"
                   key={index}
                 >
                   <div
@@ -123,7 +123,7 @@ export default function DomainStatus() {
                     <h3 className="text-lg md:text-xl font-semibold mb-2">
                       {domain.domain}
                     </h3>
-                    <p className="text-white">
+                    <p className="text-xs text-gray-500 dark:text-white">
                       {domain.name} {domain.note && `(${domain.note})`}
                     </p>
                   </div>
