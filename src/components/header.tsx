@@ -36,7 +36,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <section className="block fixed bottom-0 inset-x-0 z-50 shadow-lg text-gray-800 bg-gray-700 dark:bg-dark backdrop-blur-lg bg-opacity-30 dark:bg-opacity-30 dark:text-gray-400 md:hidden">
+      <section className="hidden block fixed bottom-0 inset-x-0 z-50 shadow-lg text-gray-800 bg-gray-700 dark:bg-dark backdrop-blur-lg bg-opacity-30 dark:bg-opacity-30 dark:text-gray-400 sm:block">
         <div id="tabs" className="flex justify-between">
           <Link
             href="/"
