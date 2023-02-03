@@ -93,7 +93,7 @@ async function requestURL(url: string): Promise<TraceURL[]> {
 
           const td = domains.get(ru.host);
           if (td) {
-            trace.valid = `this official domain from ${td}`;
+            trace.valid = `${td}`;
           }
         }
 
@@ -122,6 +122,14 @@ async function requestURL(url: string): Promise<TraceURL[]> {
         }
 
         if (tmpURL) {
+          const ru = ParseURL(tmpURL);
+          if (ru) {
+            const td = domains.get(ru.host);
+            if (td) {
+              trace.valid = `${td}`;
+            }
+          }
+
           traces.push(trace);
           return requestURL(tmpURL).then((nextData) => {
             const nd = nextData?.[0];
@@ -139,7 +147,7 @@ async function requestURL(url: string): Promise<TraceURL[]> {
   });
 }
 
-function GetURL(requestURL: string, url: string): string {
+function GetURL(requestURL: string, url: string): string | undefined {
   const valid = ValidURL(url);
   if (valid) {
     return url;
@@ -150,7 +158,7 @@ function GetURL(requestURL: string, url: string): string {
     return `${hu.origin}${url}`;
   }
 
-  return "";
+  return;
 }
 
 function ParseURL(url: string): URL | undefined {

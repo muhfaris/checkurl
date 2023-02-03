@@ -11,3 +11,7 @@ Trace url tool of the suspicious URL until you can see the real URL.
 
 ###  :rocket: Link
 https://checkurl.muhfaris.com/
+
+### Contributed
+To contrib to this project, you can open a PR or an issue.
+
