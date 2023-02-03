@@ -93,7 +93,7 @@ async function requestURL(url: string): Promise<TraceURL[]> {
 
           const td = domains.get(ru.host);
           if (td) {
-            trace.valid = `this official domain from ${td}`;
+            trace.valid = `${td}`;
           }
         }
 
@@ -126,7 +126,7 @@ async function requestURL(url: string): Promise<TraceURL[]> {
           if (ru) {
             const td = domains.get(ru.host);
             if (td) {
-              trace.valid = `this official domain from ${td}`;
+              trace.valid = `${td}`;
             }
           }
 
