@@ -22,7 +22,7 @@ export default async function handler(
       }
 
       return Object.assign({}, domain, { is_active: false });
-    } catch (e) {
+    } catch (e:any) {
       // console.log(`url:${url} - ${e.code}`);
       switch (e?.code) {
         case "ENOTFOUND":
