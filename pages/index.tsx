@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { TraceURLType } from "./../src/types";
-import Link from "next/link";
-import Image from "next/image";
 import ValidURL from "./../src/utils/urllib";
+import Header from "./../src/components/header";
+import Footer from "./../src/components/footer";
 
 export default function Home() {
   const [urlInput, setURLInput] = useState("");
@@ -66,31 +66,7 @@ export default function Home() {
 
   return (
     <div className="content md:py-5 md:my-5 dark:bg-gray-800">
-      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/logo.png"
-              className="logo mr-3 h-6 sm:h-9"
-              alt="check url logo"
-              width={34}
-              height={34}
-            />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Check URL
-            </span>
-          </Link>
-          <div className="flex items-center lg:order-2">
-            <a
-              href="mailto:dev@muhfaris.com?subject=Hi%2C%20I%20am%20from%20checkurl.muhfaris.com"
-              className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-              data-analytics='"Contact Us"'
-            >
-              Contact Us
-            </a>
-          </div>
-        </div>
-      </nav>
+      <Header />
       <div className="container mx-auto">
         {isError && (
           <div
@@ -139,7 +115,7 @@ export default function Home() {
             </button>
           </div>
         )}
-        <div className="flex justify-center  px-6 my-28">
+        <div className="flex justify-center px-6 my-24 md:my-28">
           <div className="w-full xl:w-3/4 lg:w-11/12 flex">
             <div className="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg side-images"></div>
             <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none dark:bg-gray-800">
@@ -267,60 +243,7 @@ export default function Home() {
           </ol>
         </div>
       </div>
-      <footer className="text-gray-600 body-font">
-        <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-          <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4">
-            © 2023 Check URL —
-            <a
-              href="https://twitter.com/_muh_faris"
-              className="text-gray-600 ml-1"
-              rel="noopener noreferrer"
-              target="_blank"
-              data-analytics='"Twitter Muh Faris"'
-            >
-              @_muh_faris
-            </a>
-          </p>
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a
-              className="ml-3 text-gray-500"
-              href="https://twitter.com/_muh_faris"
-              data-analytics='"Twitter Muh Faris"'
-            >
-              <svg
-                fill="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-              </svg>
-            </a>
-            <a
-              className="ml-3 text-gray-500"
-              href="https://www.linkedin.com/in/muhfaris/"
-            >
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="0"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="none"
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                ></path>
-                <circle cx="4" cy="4" r="2" stroke="none"></circle>
-              </svg>
-            </a>
-          </span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
