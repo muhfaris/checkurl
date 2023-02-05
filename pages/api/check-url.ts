@@ -34,6 +34,10 @@ export default async function handler(
     }
 
     const data = await requestURL(urls); // 200
+    res.setHeader(
+      "Cache-control",
+      "public, max-age=3600, stale-while-revalidate=900"
+    );
     res.status(200).json({ data: data });
   } catch (error) {
     res
