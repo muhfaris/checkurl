@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="en" className="dark">
       <Head>
         {typeof window !== "undefined" &&
           window.location.hostname === "checkurl.muhfaris.com" && (
@@ -34,7 +34,7 @@ export default function Document() {
         <meta property="og:url" content="https://checkurl.muhfaris.com/" />
         <meta property="og:type" content="website" />
       </Head>
-      <body>
+      <body className="h-screen dark:bg-gray-800">
         <Main />
         <NextScript />
         <script
@@ -67,7 +67,7 @@ export default function Document() {
                     JSON.parse(attributes[1] || "{}"),
                   ];
 
-                  if(plausible){
+                  if(plausible != "undefined" && plausible){
                     plausible(...events);
                   }
                 }
