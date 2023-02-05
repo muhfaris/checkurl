@@ -33,10 +33,7 @@ export default async function handler(
       return res.status(405).json({ error: "method not allowed" });
     }
 
-    // const data = await requestURL("https://bit.ly/365_Plan2023"); // redirect
     const data = await requestURL(urls); // 200
-    // const data = await requestURL("https://bit.ly/3RjLNgt"); // bit.ly + 200
-    // const data = await requestURL("https://bit.ly/3XPCtne"); // 200 1
     res.status(200).json({ data: data });
   } catch (error) {
     res
