@@ -24,12 +24,12 @@ export default function Document() {
           )}
         <meta
           name="description"
-          content="trace url tool of the suspicious URL until you can see the real URL."
+          content="trace url tool of the suspicious URL or Shortlink URL until you can see the real URL."
         />
         <meta property="og:title" content="Trace URL Tool - Muh Faris" />
         <meta
           property="og:description"
-          content="trace url tool of the suspicious URL until you can see the real URL."
+          content="trace url tool of the suspicious URL or Shortlink URL until you can see the real URL."
         />
         <meta property="og:url" content="https://checkurl.muhfaris.com/" />
         <meta property="og:type" content="website" />
