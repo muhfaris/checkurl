@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Trace URL Tool - Muh Faris</title>
+        <title>Trace Shortlink URL - Muh Faris</title>
       </Head>
       <Component {...pageProps} />
     </>
