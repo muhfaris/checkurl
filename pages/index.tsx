@@ -206,14 +206,14 @@ export default function Home() {
                   </span>
                   <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                     {tu.name}
-                    <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-500 ml-3">
+                    <span className="bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-200 ml-3">
                       | {tu.valid}
                     </span>
                   </h3>
                   <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                     status {tu.status}
                   </time>
-                  <p className="break-words mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+                  <p className="break-words mb-4 text-sm font-normal text-gray-500 dark:text-gray-400">
                     {tu.url}
                     <button
                       className="inline-block font-medium text-sm text-blue-800 dark:text-blue-300 px-2.5 py-0.5 rounded"
