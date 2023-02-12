@@ -206,7 +206,7 @@ export default function Home() {
                   </span>
                   <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                     {tu.name}
-                    <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ml-3">
+                    <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-500 ml-3">
                       | {tu.valid}
                     </span>
                   </h3>
