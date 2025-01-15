@@ -65,13 +65,13 @@ export default function Home() {
   };
 
   return (
-    <div className="content md:py-5 md:my-5 dark:bg-gray-800">
+    <div className="md:py-5 md:my-5 dark:bg-gray-800 content">
       <Header />
       <div className="container mx-auto">
         {isError && (
           <div
             id="alert-4"
-            className="flex p-4 mt-10 mb-4 text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300"
+            className="flex p-4 mt-10 mb-4 text-yellow-800 bg-yellow-50 rounded-lg dark:text-yellow-300 dark:bg-gray-800"
             role="alert"
           >
             <svg
@@ -93,7 +93,7 @@ export default function Home() {
             </div>
             <button
               type="button"
-              className="ml-auto -mx-1.5 -my-1.5 bg-yellow-50 text-yellow-500 rounded-lg focus:ring-2 focus:ring-yellow-400 p-1.5 hover:bg-yellow-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-yellow-300 dark:hover:bg-gray-700"
+              className="inline-flex p-1.5 -my-1.5 -mx-1.5 ml-auto w-8 h-8 text-yellow-500 bg-yellow-50 rounded-lg dark:text-yellow-300 dark:bg-gray-800 hover:bg-yellow-200 focus:ring-2 focus:ring-yellow-400 dark:hover:bg-gray-700"
               data-dismiss-target="#alert-4"
               aria-label="Close"
               onClick={() => setIsError(false)}
@@ -116,9 +116,9 @@ export default function Home() {
           </div>
         )}
         <div className="flex justify-center px-6 my-24 md:my-28">
-          <div className="w-full xl:w-3/4 lg:w-11/12 flex">
-            <div className="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg side-images"></div>
-            <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none dark:bg-gray-800">
+          <div className="flex w-full lg:w-11/12 xl:w-3/4">
+            <div className="hidden w-full h-auto bg-gray-400 bg-cover rounded-l-lg lg:block lg:w-1/2 side-images"></div>
+            <div className="p-5 w-full bg-white rounded-lg lg:w-1/2 lg:rounded-l-none dark:bg-gray-800">
               <div className="px-8 mb-4 text-center">
                 <h3 className="pt-4 mb-2 text-2xl dark:text-white">
                   Check URL
@@ -140,7 +140,7 @@ export default function Home() {
                     URL
                   </label>
                   <input
-                    className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                    className="py-2 px-3 w-full text-sm leading-tight text-gray-700 rounded border shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="url"
                     type="text"
                     value={urlInput}
@@ -150,7 +150,7 @@ export default function Home() {
                 </div>
                 <div className="mb-6 text-center">
                   <button
-                    className="w-full px-4 py-2 font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline"
+                    className="py-2 px-4 w-full font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline"
                     type="submit"
                     disabled={loading}
                   >
@@ -159,7 +159,7 @@ export default function Home() {
                         <svg
                           aria-hidden="true"
                           role="status"
-                          className="inline w-4 h-4 mr-3 text-white animate-spin"
+                          className="inline mr-3 w-4 h-4 text-white animate-spin"
                           viewBox="0 0 100 101"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -185,58 +185,73 @@ export default function Home() {
           </div>
         </div>
         <div className="flex px-5 mx-5">
-          <ol className="relative border-l border-gray-200 dark:border-gray-700">
+          <ol className="relative border-gray-200 dark:border-gray-700">
             {tracesURL.map((tu, key) => {
               return (
-                <li className="max-w-xs mb-10 ml-6 md:max-w-full" key={key}>
-                  <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                    <svg
-                      aria-hidden="true"
-                      className="w-3 h-3 text-blue-800 dark:text-blue-300"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </span>
-                  <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-                    {tu.name}
-                    <span className="bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-200 ml-3">
-                      | {tu.valid}
-                    </span>
-                  </h3>
-                  <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                    status {tu.status}
-                  </time>
-                  <p className="break-words mb-4 text-sm font-normal text-gray-500 dark:text-gray-400">
-                    {tu.url}
-                    <button
-                      className="inline-block font-medium text-sm text-blue-800 dark:text-blue-300 px-2.5 py-0.5 rounded"
-                      onClick={() => copyText(tu.url)}
-                    >
+                <li
+                  className={
+                    tracesURL.length - 1 === key
+                      ? "pb-10 pl-6 max-w-xs md:max-w-full"
+                      : "pb-10 pl-6 max-w-xs md:max-w-full border-l"
+                  }
+                  key={key}
+                >
+                  <div
+                    className={
+                      tracesURL.length - 1 === key
+                        ? "rounded-lg p-4 bg-gray-600"
+                        : ""
+                    }
+                  >
+                    <span className="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-100 rounded-full ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
                       <svg
-                        className="h-6 w-6 text-gray-500"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        strokeWidth="2"
-                        stroke="currentColor"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                        aria-hidden="true"
+                        className="w-3 h-3 text-blue-800 dark:text-blue-300"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        {" "}
-                        <path stroke="none" d="M0 0h24v24H0z" />{" "}
-                        <rect x="8" y="4" width="12" height="12" rx="2" />{" "}
-                        <path d="M16 16v2a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2h2" />
-                      </svg>{" "}
-                    </button>
-                  </p>
+                        <path
+                          fillRule="evenodd"
+                          d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                    </span>
+                    <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+                      {tracesURL.length - 1 == key ? "Original URL" : tu.name}
+                      <span className="py-0.5 px-2.5 mr-2 ml-3 text-sm font-semibold text-blue-800 bg-blue-100 rounded dark:text-blue-200 dark:bg-blue-900">
+                        | {tu.valid}
+                      </span>
+                    </h3>
+                    <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                      status {tu.status}
+                    </time>
+                    <p className="mb-4 text-sm font-normal text-gray-500 break-words dark:text-gray-400">
+                      {tu.url}
+                      <button
+                        className="inline-block py-0.5 px-2.5 text-sm font-medium text-blue-800 rounded dark:text-blue-300"
+                        onClick={() => copyText(tu.url)}
+                      >
+                        <svg
+                          className="w-6 h-6 text-gray-500"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          strokeWidth="2"
+                          stroke="currentColor"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          {" "}
+                          <path stroke="none" d="M0 0h24v24H0z" />{" "}
+                          <rect x="8" y="4" width="12" height="12" rx="2" />{" "}
+                          <path d="M16 16v2a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2h2" />
+                        </svg>{" "}
+                      </button>
+                    </p>
+                  </div>
                 </li>
               );
             })}
